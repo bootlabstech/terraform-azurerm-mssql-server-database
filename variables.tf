@@ -76,8 +76,9 @@ variable "name" {
     description = "value"
 
 }
-# variable "" {
-#     type = string
-#     description = "value"
+variable "public_network_access_enabled" {
+    type = bool
+    description = "value"
+    default = false
 
-# }
+}

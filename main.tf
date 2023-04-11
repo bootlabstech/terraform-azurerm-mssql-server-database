@@ -6,6 +6,7 @@ resource "azurerm_mssql_server" "example" {
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
   connection_policy            = var.connection_policy
+  public_network_access_enabled = var.public_network_access_enabled
 }
 
 resource "azurerm_mssql_database" "test" {
@@ -17,6 +18,7 @@ resource "azurerm_mssql_database" "test" {
   max_size_gb                    = var.max_size_gb
   sku_name                       = var.sku_name
   storage_account_type           = var.storage_account_type
+
   #   threat_detection_policy {
   #     disabled_alerts = [ "value" ]
   #     email_account_admins = 
