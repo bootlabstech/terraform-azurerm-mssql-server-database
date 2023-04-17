@@ -1,3 +1,4 @@
+# Creates a  MsSQL Server
 resource "azurerm_mssql_server" "example" {
   name                         = var.server_name
   resource_group_name          = var.resource_group_name
@@ -8,7 +9,7 @@ resource "azurerm_mssql_server" "example" {
   connection_policy            = var.connection_policy
   public_network_access_enabled = var.public_network_access_enabled
 }
-
+# Creates a mssql database
 resource "azurerm_mssql_database" "test" {
   name                           = var.name
   server_id                      = azurerm_mssql_server.example.id
@@ -34,6 +35,8 @@ resource "azurerm_mssql_database" "test" {
   #   read_scale     = true
   #   zone_redundant = true
 }
+
+# Network setting allows All Azure Services
 resource "azurerm_mssql_firewall_rule" "example" {
   name             = "FirewallRule1"
   server_id        = azurerm_mssql_server.example.id
