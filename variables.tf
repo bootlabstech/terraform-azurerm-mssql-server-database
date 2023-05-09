@@ -1,3 +1,4 @@
+# server
 variable "server_name" {
   type        = string
   description = "value"
@@ -71,6 +72,7 @@ variable "storage_account_type" {
   default     = "Geo"
 
 }
+# database
 variable "name" {
     type = string
     description = "value"
@@ -79,6 +81,6 @@ variable "name" {
 variable "public_network_access_enabled" {
     type = bool
     description = "value"
-    default = false
+    default = true
 
 }
