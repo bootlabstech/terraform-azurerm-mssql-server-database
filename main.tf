@@ -8,6 +8,11 @@ resource "azurerm_mssql_server" "example" {
   administrator_login_password = var.administrator_login_password
   connection_policy            = var.connection_policy
   public_network_access_enabled = var.public_network_access_enabled
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 # Creates a mssql database
 resource "azurerm_mssql_database" "test" {
@@ -19,6 +24,11 @@ resource "azurerm_mssql_database" "test" {
   max_size_gb                    = var.max_size_gb
   sku_name                       = var.sku_name
   storage_account_type           = var.storage_account_type
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 
   #   threat_detection_policy {
   #     disabled_alerts = [ "value" ]
