@@ -66,5 +66,5 @@ resource "azurerm_key_vault_secret" "mssql_password" {
   value        = random_password.password.result
   key_vault_id = data.azurerm_key_vault.key_vault.id
 
-  depends_on = [azurerm_mysql_flexible_server.example]
+  depends_on = [azurerm_mssql_server.example]
 }  

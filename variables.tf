@@ -78,4 +78,9 @@ variable "storage_account_type" {
   description = "Specifies the storage account type used to store backups for this database. Possible values are Geo, Local and Zone. The default value is Geo."
   default     = "Geo"
 
+
+}
+variable "keyvault_name" {
+ type        = string
+  
 }
