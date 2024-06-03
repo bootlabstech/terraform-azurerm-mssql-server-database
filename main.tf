@@ -62,7 +62,7 @@ resource "random_password" "password" {
 
 # Stores DB login password as keyvault secret
 resource "azurerm_key_vault_secret" "mssql_password" {
-  name         = "${var.name}-pwd"
+  name         = "${var.name}-pwde"
   value        = random_password.password.result
   key_vault_id = data.azurerm_key_vault.key_vault.id
 
