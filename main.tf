@@ -104,3 +104,7 @@ resource "azurerm_mssql_database" "test" {
   #   zone_redundant = true
   depends_on = [ azurerm_mssql_server.example ]
 }
+
+
+
+

@@ -31,12 +31,12 @@ variable "connection_policy" {
   default     = "Default"
 
 }
-variable "public_network_access_enabled" {
-    type = bool
-    description = "Whether public network access is allowed for this server. Defaults to true."
-    default = false
+# variable "public_network_access_enabled" {
+#     type = bool
+#     description = "Whether public network access is allowed for this server. Defaults to true."
+#     default = false
 
-}
+# }
 
 variable "keyvault_name" {
   type = string
@@ -119,4 +119,39 @@ variable "public_network_access_enabled" {
     description = "value"
     default = false
 
+}
+
+
+
+variable "{{.name}}_max_size_gb" {
+     type = number
+     description = "value"
+}
+variable "{{.name}}_name" {
+     type = string
+     description = "The name of the Microsoft SQL Server. This needs to be globally unique within Azure. "
+}
+variable "{{.name}}_administrator_login" {
+     type = string
+     description = "The administrator login name for the new server."
+}
+variable "{{.name}}_private_dns_zone_ids" {
+     type = list(string)
+     description = "Specifies the list of Private DNS Zones to include within the private_dns_zone_group."
+}
+variable "{{.name}}_sku_name" {
+     type = string
+     description = "value"
+}
+variable "{{.name}}_dbname" {
+     type = string
+     description = "value"
+}
+variable "{{.name}}_keyvault_name" {
+     type = string
+     description = ""
+}
+variable "{{.name}}_private_endpoint_subnet_id" {
+     type = string
+     description = "The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint."
 }
