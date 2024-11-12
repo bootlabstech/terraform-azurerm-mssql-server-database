@@ -1,5 +1,5 @@
 # server
-variable "server_name" {
+variable "name" {
   type        = string
   description = "The name of the Microsoft SQL Server. This needs to be globally unique within Azure. "
 
@@ -31,56 +31,92 @@ variable "connection_policy" {
   default     = "Default"
 
 }
-variable "public_network_access_enabled" {
-    type = bool
-    description = "Whether public network access is allowed for this server. Defaults to true."
-    default = true
+# variable "public_network_access_enabled" {
+#     type = bool
+#     description = "Whether public network access is allowed for this server. Defaults to true."
+#     default = false
+
+# }
+
+variable "keyvault_name" {
+  type = string
+  
+}
+
+# PE
+# private endpoint
+
+variable "private_endpoint_subnet_id" {
+  type        = string
+  description = "The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint."
 
 }
 
-# MSSQL database
-variable "name" {
-    type = string
-    description = "The name of the MS SQL Database. Changing this forces a new resource to be created."
+variable "is_manual_connection" {
+  type        = bool
+  description = "Does the Private Endpoint require Manual Approval from the remote resource owner?"
+  default     = false
 
+}
+variable "subresource_names" {
+  type        = list(string)
+  description = " A list of subresource names which the Private Endpoint is able to connect to."
+  default = [ "sqlServer" ]
+}
+variable "private_dns_zone_ids" {
+  type        = list(string)
+  description = "Specifies the list of Private DNS Zones to include within the private_dns_zone_group."
+}
+
+variable "ip_configuration" {
+  type        = bool
+  default     = false
+  description = "One or more ip_configuration blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet."
 }
 variable "create_mode" {
   type        = string
-  description = "The create mode of the database. Possible values are Copy, Default, OnlineSecondary, PointInTimeRestore, Recovery, Restore, RestoreExternalBackup, RestoreExternalBackupSecondary, RestoreLongTermRetentionBackup and Secondary. Mutually exclusive with import."
+  description = "value"
   default     = "Default"
 
 
 }
 variable "geo_backup_enabled" {
   type        = bool
-  description = "A boolean that specifies if the Geo Backup Policy is enabled. Defaults to true."
+  description = "value"
   default     = true
 
 }
 variable "maintenance_configuration_name" {
   type        = string
-  description = "The name of the Public Maintenance Configuration window to apply to the database. Valid values include SQL_Default"
+  description = "value"
   default     = "SQL_Default"
 
 }
 variable "max_size_gb" {
   type        = number
-  description = "The max size of the database in gigabytes."
+  description = "value"
 
 }
 variable "sku_name" {
   type        = string
-  description = "Specifies the name of the SKU used by the database. For example, GP_S_Gen5_2,HS_Gen4_1,BC_Gen5_2, ElasticPool, Basic,S0, P2 ,DW100c, DS100."
+  description = "value"
 
 }
 variable "storage_account_type" {
   type        = string
-  description = "Specifies the storage account type used to store backups for this database. Possible values are Geo, Local and Zone. The default value is Geo."
+  description = "value"
   default     = "Geo"
 
+}
+# database
+variable "dbname" {
+    type = string
+    description = "value"
 
 }
-variable "keyvault_name" {
- type        = string
-  
+variable "public_network_access_enabled" {
+    type = bool
+    description = "value"
+    default = false
+
 }
