@@ -84,3 +84,7 @@ variable "public_network_access_enabled" {
     default = true
 
 }
+variable "keyvault_name" {
+ type        = string
+  
+}
