@@ -49,13 +49,13 @@ resource "azurerm_mssql_database" "test" {
   #   zone_redundant = true
 }
 
-# Network setting allows All Azure Services
-resource "azurerm_mssql_firewall_rule" "example" {
-  name             = "FirewallRule1"
-  server_id        = azurerm_mssql_server.example.id
-  start_ip_address = "0.0.0.0"
-  end_ip_address   = "0.0.0.0"
-}
+# # Network setting allows All Azure Services
+# resource "azurerm_mssql_firewall_rule" "example" {
+#   name             = "FirewallRule1"
+#   server_id        = azurerm_mssql_server.example.id
+#   start_ip_address = "0.0.0.0"
+#   end_ip_address   = "0.0.0.0"
+# }
 # get key vault details to store DB password as secret
 data "azurerm_key_vault" "key_vault" {
   name                = var.keyvault_name

@@ -81,7 +81,7 @@ variable "name" {
 variable "public_network_access_enabled" {
     type = bool
     description = "value"
-    default = true
+    default = false
 
 }
 variable "keyvault_name" {
