@@ -25,12 +25,7 @@ variable "administrator_login" {
   description = "value"
 
 }
-# variable "administrator_login_password" {
-#   type        = string
-#   description = "value"
 
-
-# }
 variable "connection_policy" {
   type        = string
   description = "value"
